@@ -1,0 +1,2 @@
+"""AI Trader backend package."""
+

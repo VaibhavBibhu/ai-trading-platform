@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Trader Preview</title>
+    <style>
+      :root {
+        --bg: #f4f2ec;
+        --surface: #ffffff;
+        --soft: #f8f7f2;
+        --ink: #17211f;
+        --muted: #66706c;
+        --line: #dedbd2;
+        --green: #23745d;
+        --red: #bd3f32;
+        --blue: #295f9f;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--ink); }
+      .shell { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+      aside { background: #11352d; color: #fff; padding: 24px 18px; }
+      .brand { display: flex; gap: 12px; align-items: center; margin-bottom: 34px; }
+      .mark { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 8px; background: #d7efe5; color: #12362e; font-weight: 800; }
+      nav { display: grid; gap: 8px; }
+      nav a { padding: 12px; border-radius: 8px; color: #fff; text-decoration: none; opacity: .86; }
+      nav a:first-child, nav a:hover { background: rgba(255,255,255,.12); opacity: 1; }
+      main { padding: 28px; }
+      header, .panel-header, .metrics { display: flex; justify-content: space-between; gap: 16px; }
+      header { align-items: center; margin-bottom: 22px; }
+      h1, h2, p { margin: 0; }
+      h1 { font-size: clamp(2rem, 4vw, 4.1rem); line-height: 1; }
+      h2 { font-size: 1.05rem; }
+      .eyebrow { margin-bottom: 7px; color: var(--blue); font-size: .78rem; font-weight: 800; text-transform: uppercase; }
+      .btn { min-height: 42px; border: 0; border-radius: 8px; padding: 0 16px; background: #17211f; color: #fff; font-weight: 800; }
+      .metrics { display: grid; grid-template-columns: repeat(4, 1fr); margin-bottom: 16px; }
+      .grid { display: grid; grid-template-columns: 1.4fr .8fr .9fr; gap: 16px; }
+      .hero-grid { display: grid; grid-template-columns: 1.7fr .8fr; gap: 16px; margin-bottom: 16px; }
+      .card, .panel { border: 1px solid var(--line); border-radius: 8px; background: var(--surface); box-shadow: 0 18px 50px rgba(32,42,38,.12); }
+      .card { padding: 18px; }
+      .card span, small { color: var(--muted); }
+      .card strong { display: block; margin: 10px 0 6px; font-size: 1.55rem; }
+      .panel { padding: 18px; }
+      .chart { height: 260px; margin-top: 22px; border-radius: 8px; background: linear-gradient(180deg, rgba(35,116,93,.28), transparent), linear-gradient(135deg, transparent 45%, rgba(35,116,93,.35) 45% 48%, transparent 48% 55%, rgba(35,116,93,.45) 55% 58%, transparent 58%); border: 1px solid var(--line); }
+      .pill { border-radius: 999px; padding: 6px 10px; background: #e2f4ec; color: var(--green); font-size: .78rem; font-weight: 800; }
+      .score { display: grid; place-items: center; min-height: 118px; margin: 18px 0; border-radius: 8px; background: #eef7f2; }
+      .score strong { font-size: 3.2rem; }
+      .risk-row { display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid var(--line); }
+      table { width: 100%; border-collapse: collapse; }
+      th, td { padding: 14px 8px; border-bottom: 1px solid var(--line); text-align: left; white-space: nowrap; }
+      td span { display: block; color: var(--muted); font-size: .78rem; }
+      .stack { display: grid; gap: 12px; margin-top: 14px; }
+      .mini { padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--soft); }
+      .green { color: var(--green); }
+      .red { color: var(--red); }
+      @media (max-width: 980px) {
+        .shell { grid-template-columns: 1fr; }
+        aside { position: static; }
+        .metrics, .hero-grid, .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <aside>
+        <div class="brand"><div class="mark">AT</div><div><strong>AI Trader</strong><br /><small>Paper mode</small></div></div>
+        <nav><a href="#">Dashboard</a><a href="#">Market</a><a href="#">Portfolio</a><a href="#">Prediction</a><a href="#">News</a><a href="#">Risk</a></nav>
+      </aside>
+      <main>
+        <header>
+          <div><p class="eyebrow">Trading command center</p><h1>AI-assisted paper trading dashboard</h1></div>
+          <button class="btn">Paper Trade</button>
+        </header>
+        <section class="metrics">
+          <article class="card"><span>Equity</span><strong>$100,000</strong><small>+1.24%</small></article>
+          <article class="card"><span>Daily P/L</span><strong class="green">$843.27</strong><small>+0.84%</small></article>
+          <article class="card"><span>Win Rate</span><strong>64%</strong><small>30 trades</small></article>
+          <article class="card"><span>Risk Exposure</span><strong>38%</strong><small>within policy</small></article>
+        </section>
+        <section class="hero-grid">
+          <article class="panel"><div class="panel-header"><div><p class="eyebrow">Portfolio</p><h2>Equity curve</h2></div><span class="pill">Live demo</span></div><div class="chart"></div></article>
+          <article class="panel"><div class="panel-header"><div><p class="eyebrow">Decision engine</p><h2>AAPL signal</h2></div><span class="pill">BUY</span></div><div class="score"><strong>83%</strong><span>confidence</span></div><div class="risk-row"><span>Position size</span><strong>203 shares</strong></div><div class="risk-row"><span>Max loss</span><strong>$998.76</strong></div></article>
+        </section>
+        <section class="grid">
+          <article class="panel"><h2>Market watch</h2><table><tr><th>Symbol</th><th>Price</th><th>Change</th></tr><tr><td><strong>AAPL</strong><span>Apple Inc.</span></td><td>$193.42</td><td class="green">1.18%</td></tr><tr><td><strong>NVDA</strong><span>NVIDIA Corp.</span></td><td>$126.90</td><td class="green">2.31%</td></tr><tr><td><strong>TSLA</strong><span>Tesla Inc.</span></td><td>$183.01</td><td class="red">-1.47%</td></tr></table></article>
+          <article class="panel"><h2>AI predictions</h2><div class="stack"><div class="mini"><strong>AAPL BUY</strong><br /><small>83% confidence</small></div><div class="mini"><strong>MSFT HOLD</strong><br /><small>61% confidence</small></div><div class="mini"><strong>TSLA SELL</strong><br /><small>68% confidence</small></div></div></article>
+          <article class="panel"><h2>News sentiment</h2><div class="stack"><div class="mini"><span class="green">AAPL</span><br /><strong>Supplier outlook improves</strong><br /><small>Impact +12</small></div><div class="mini"><span class="red">TSLA</span><br /><strong>Pricing pressure weighs</strong><br /><small>Impact -9</small></div></div></article>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>
+
